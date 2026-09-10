@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raffick Music AI</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #0b0b12;
+      color: white;
+      min-height: 100vh;
+    }
+
+    .app {
+      width: 100%;
+      max-width: 600px;
+      margin: auto;
+      padding: 25px 18px;
+    }
+
+    .header {
+      text-align: center;
+      padding: 25px 10px;
+    }
+
+    .logo {
+      font-size: 45px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 30px;
+    }
+
+    .subtitle {
+      color: #aaa;
+      margin-top: 8px;
+    }
+
+    .card {
+      background: #171722;
+      border-radius: 18px;
+      padding: 20px;
+      margin-top: 20px;
+      border: 1px solid #29293a;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    textarea,
+    select,
+    input {
+      width: 100%;
+      background: #0e0e16;
+      color: white;
+      border: 1px solid #36364a;
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 18px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    textarea {
+      height: 130px;
+      resize: none;
+    }
+
+    button {
+      width: 100%;
+      border: none;
+      border-radius: 14px;
+      padding: 15px;
+      font-size: 17px;
+      font-weight: bold;
+      color: white;
+      background: linear-gradient(90deg, #e91e8f, #7c4dff);
+      cursor: pointer;
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    .result {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+      padding: 20px;
+      background: #171722;
+      border-radius: 18px;
+    }
+
+    .music-icon {
+      font-size: 55px;
+      margin-bottom: 10px;
+    }
+
+    .footer {
+      text-align: center;
+      color: #777;
+      margin-top: 30px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="app">
+
+    <div class="header">
+      <div class="logo">🎵</div>
+      <h1>Raffick Music AI</h1>
+      <p class="subtitle">Create music with AI</p>
+    </div>
+
+    <div class="card">
+
+      <label for="prompt">Describe your song</label>
+
+      <textarea id="prompt"
+        placeholder="Example: Create a beautiful Afrobeat song about love and success..."></textarea>
+
+      <label for="genre">Music style</label>
+
+      <select id="genre">
+        <option>Afrobeat</option>
+        <option>Amapiano</option>
+        <option>Hip Hop</option>
+        <option>R&B</option>
+        <option>Pop</option>
+        <option>Gospel</option>
+      </select>
+
+      <label for="duration">Duration</label>
+
+      <select id="duration">
+        <option>Short</option>
+        <option>Medium</option>
+        <option>Long</option>
+      </select>
+
+      <button onclick="createMusic()">
+        🎶 Create Music
+      </button>
+
+    </div>
+
+    <div class="result" id="result">
+      <div class="music-icon">🎧</div>
+      <h2>Your song is being prepared</h2>
+      <p style="color:#aaa; margin-top:10px;">
+        Music generation will be connected next.
+      </p>
+    </div>
+
+    <div class="footer">
+      Raffick Music AI © 2026
+    </div>
+
+  </div>
+
+  <script>
+    function createMusic() {
+      const prompt = document.getElementById("prompt").value.trim();
+
+      if (!prompt) {
+        alert("Please describe the song you want to create.");
+        return;
+      }
+
+      document.getElementById("result").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
