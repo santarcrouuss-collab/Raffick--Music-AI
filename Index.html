@@ -1,6 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raffick Music AI V5</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#090b12;
+  color:white;
+  min-height:100vh;
+}
+.container{
+  max-width:700px;
+  margin:auto;
+  padding:24px 16px;
+}
+header{
+  text-align:center;
+  padding:20px 0 28px;
+}
+.logo{font-size:50px}
+h1{margin:8px 0;font-size:30px}
+.subtitle{color:#9da5b8}
+
+.card{
+  background:#121622;
+  border:1px solid #252b3a;
+  border-radius:20px;
+  padding:20px;
+  margin-bottom:16px;
+}
+
+label{
+  display:block;
+  margin-bottom:8px;
+  font-weight:bold;
+}
+
+textarea,select{
+  width:100%;
+  background:#0b0e16;
+  color:white;
+  border:1px solid #303747;
+  border-radius:12px;
+  padding:14px;
+  font-size:16px;
+  margin-bottom:16px;
+}
+
+textarea{
+  min-height:130px;
+  resize:vertical;
+}
+
+button{
+  width:100%;
+  border:0;
+  border-radius:14px;
+  padding:15px;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+  background:white;
+  color:#090b12;
+}
+
+button:active{
+  transform:scale(.98);
+}
+
+#result{
+  display:none;
+}
+
+.status{
+  color:#b9c1d3;
+  line-height:1.5;
+}
+
+.example{
+  color:#7f8799;
+  font-size:13px;
+  margin-top:-8px;
+  margin-bottom:16px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+  <div class="logo">🎵</div>
+  <h1>Raffick Music AI</h1>
+  <div class="subtitle">Create music with AI</div>
+</header>
+
+<div class="card">
+
+<label for="prompt">Describe your song</label>
+
+<textarea
+id="prompt"
+placeholder="Example: A happy Afrobeat song about love, with energetic drums and a catchy melody...">
+</textarea>
+
+<div class="example">
+💡 Example: “A powerful Afrobeat song about success and never giving up.”
+</div>
+
+<label for="genre">Genre</label>
+
+<select id="genre">
+<option>Afrobeat</option>
+<option>Amapiano</option>
+<option>Hip Hop</option>
+<option>R&B</option>
+<option>Pop</option>
+<option>Gospel</option>
+</select>
+
+<label for="duration">Duration</label>
+
+<select id="duration">
+<option value="short">Short</option>
+<option value="medium">Medium</option>
+<option value="long">Long</option>
+</select>
+
+<button onclick="createMusic()">
+🎶 Create Music
+</button>
+
+</div>
+
+<div class="card" id="result">
+
+<h2>🎧 Your Music</h2>
+
+<div class="status" id="status"></div>
+
+</div>
+
+</div>
+
+<script>
+
+function createMusic(){
+
+  const prompt =
+  document.getElementById("prompt").value.trim();
+
+  const genre =
+  document.getElementById("genre").value;
+
+  const duration =
+  document.getElementById("duration").value;
+
+  const result =
+  document.getElementById("result");
+
+  const status =
+  document.getElementById("status");
+
+  result.style.display="block";
+
+  if(!prompt){
+
+    status.textContent =
+    "Please describe the music you want first.";
+
+    return;
+  }
+
+  status.innerHTML =
+  "🎵 Preparing your "+genre+" song...<br><br>"+
+  "<b>Your music request has been received.</b><br><br>"+
+  "Duration: "+duration;
+
+}
+
+</script>
+
+</body>
+                                </html><!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Raffick Music AI</title>
